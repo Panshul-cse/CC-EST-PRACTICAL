@@ -1,0 +1,12 @@
+class Solution:
+    def powMod(self, x, n, M):
+        def powerr(x, n):
+            if n == 0:
+                return 1
+            half = powerr(x, n // 2)
+            if n % 2 == 0:
+                return (half * half) % M
+            else:
+                return (x * half * half) % M
+
+        return powerr(x, n)
